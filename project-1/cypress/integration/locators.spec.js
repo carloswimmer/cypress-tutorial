@@ -16,4 +16,17 @@ describe("Locators", () => {
     cy.get("[data-cy='btn-id-1']");
     cy.getByTestId("btn-id-1");
   });
+
+  it("should locate elements with contains", () => {
+    cy.contains("Unique Text");
+    cy.contains("Not Unique Text");
+    cy.contains("[type='submit']", "Not Unique Text");
+    cy.contains("form", "Not Unique Text");
+    cy.get("[type='submit']").contains("Not Unique Text");
+  });
+
+  it("should locate elements with find", () => {
+    cy.get("#form-1").find(".btn-1");
+    cy.get("#form-1").find(".btn-2");
+  });
 });
